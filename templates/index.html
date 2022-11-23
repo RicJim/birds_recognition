@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity=
+    "sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Prototipo Reconocimiento de Aves</title>
+    <!-- As a link -->
+    <nav class="navbar navbar-dark bg-dark opaque-70">
+        <a class="navbar-brand" href="/">Prototipo Reconocimiento de Aves</a>
+    </nav>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1 class="text-center">Prototipo de identificación de aves</h1>
+    <div class="text-center">
+        <div id="controls">
+            <button id="record" class="btn btn-primary btn-lg btn-block" >Iniciar Grabacion</button>
+            <button id="predic" class="btn btn-primary btn-lg btn-block" disabled="true">Identificar</button>
+        </div>
+        <ol id="recordingsList"></ol>
+    </div>
+    
+    <h3 id="bird_name"><span> </span></h3>
+
+    <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
