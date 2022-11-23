@@ -96,3 +96,34 @@ function prediction(){
         },
     });
 }
+
+let image = document.getElementById('imagen');
+let imageName = document.getElementById('nombreIMG');
+
+function changeImage(){
+    if(image.src.match("Dendroica_chrysoparia1")){
+        image.src ="https://estaticos-cdn.elperiodico.com/clip/3424569b-4f02-4186-8bcc-ac218d277b31_alta-libre-aspect-ratio_default_0.jpg";
+        imageName.innerHTML = "Quetzal";
+    } else if(image.src.match("")){
+        
+    }
+}
+
+function changeImage1(){
+    if(image.src.match("ratio_default_0")){
+        image.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Dendroica_chrysoparia1.jpg/1200px-Dendroica_chrysoparia1.jpg";
+        imageName.innerHTML = "Reinita caridorada";
+    } else if (image.src.match("Dendroica_chrysoparia1")){
+        image.src = "https://lh4.ggpht.com/d7FLvfHHlVscO-nCsvIpLYtTZewrn-QgseBIGa5xz-qvY4xqmDRU4EwSJEB2yFxv-1bQD5xqHuOnDLBM1XUC=s600";
+        imageName.innerHTML = "Solitario Carinegro"
+    } else if(image.src.match("d7FLvfHHlVscO")) {
+        image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/480560721/";
+        imageName.innerHTML = "Burrito cuyano"
+    } else if(image.src.match("480560721")){
+        image.src = ""
+        imageName.innerHTML = ""
+    } else {
+        image.src = "https://estaticos-cdn.elperiodico.com/clip/3424569b-4f02-4186-8bcc-ac218d277b31_alta-libre-aspect-ratio_default_0.jpg";
+        imageName.innerHTML = "Quetzal";
+    }
+}
