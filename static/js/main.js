@@ -93,8 +93,46 @@ function prediction(){
             //Get and display the result
             $('#bird_name').fadeIn(600);
             $('#bird_name').text(' Ave Identificada:  ' + birdID);
+            birdIMG()
         },
     });
+}
+
+function birdIMG(){
+    if(birdID = "Acathidops bairdi - Pinzón piquiagudo"){
+        image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/47233731/1200";
+        imageName.innerHTML = "Pinzón piquiagudo";
+    } else if(birdID = "Amazona Auropalliata - Nuca amarilla"){
+        image.src = "https://www.barrameda.com.ar/wp-content/uploads/2019/12/lora-nuca-amarilla.jpg";
+        imageName.innerHTML = "Nuca Amarilla";
+    } else if(birdID = "Amazona Oratrix - Loro rey"){
+        image.src = "https://avesexoticas.org/wp-content/uploads/2017/10/Loro-Baceza-Amarilla-Amazona-oratrix-1024x680.jpg";
+        imageName.innerHTML = "Loro Rey";
+    } else if(birdID = "Ara ambiguus - Guacamaya verde"){
+        image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/245390831/1200";
+        imageName.innerHTML = "Guacamaya verde";
+    } else if(birdID = "Chlorophonia callophrys - Fruterito de cejas doradas"){
+        image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/243972201/1200";
+        imageName.innerHTML = "Fruterito de cejas doradas";
+    } else if(birdID = "Laterallus Jamaicensis - Burrito cuyano"){
+        image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/480560721/";
+        imageName.innerHTML = "Burrito cuyano";
+    } else if(birdID = "Myadestes melanops - Solitario carinegro"){
+        image.src = "https://lh4.ggpht.com/d7FLvfHHlVscO-nCsvIpLYtTZewrn-QgseBIGa5xz-qvY4xqmDRU4EwSJEB2yFxv-1bQD5xqHuOnDLBM1XUC=s600";
+        imageName.innerHTML = "Solitario Carinegro"
+    } else if(birdID = "Pharopmachrus mocinno - Quetzals"){
+        image.src ="https://estaticos-cdn.elperiodico.com/clip/3424569b-4f02-4186-8bcc-ac218d277b31_alta-libre-aspect-ratio_default_0.jpg";
+        imageName.innerHTML = "Quetzal";
+    } else if(birdID = "Pyrrhura picta eisenmanni - Perico carato"){
+        image.src = "https://upload.wikimedia.org/wikipedia/commons/9/98/Azuero_Parakeet.jpg";
+        imageName.innerHTML = "Perico carato";
+    } else if(birdID = "Setophaga chrysoparia - Reinita caridorada"){
+        image.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Dendroica_chrysoparia1.jpg/1200px-Dendroica_chrysoparia1.jpg";
+        imageName.innerHTML = "Reinita caridorada";
+    } else{
+        image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/326175571/1200";
+        imageName.innerHTML = "Aguilillo adornado";
+    }
 }
 
 let image = document.getElementById('imagen');

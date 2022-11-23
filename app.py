@@ -24,7 +24,7 @@ APP_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 label = ["Acathidops bairdi - Pinzón piquiagudo","Amazona Auropalliata - Nuca amarilla","Amazona Oratrix - Loro rey",
         "Ara ambiguus - Guacamaya verde","Chlorophonia callophrys - Fruterito de cejas doradas",
-        "Laterallus Jamaicensis - Burrito cuyano","Myadestes melanops - Solitatio carinegro","Pharopmachrus mocinno - Quetzal",
+        "Laterallus Jamaicensis - Burrito cuyano","Myadestes melanops - Solitario carinegro","Pharopmachrus mocinno - Quetzal",
         "Pyrrhura picta eisenmanni - Perico carato","Setophaga chrysoparia - Reinita caridorada","Spizaetus ornatus - Aguilillo adornado"]
 
 app = Flask(__name__)
