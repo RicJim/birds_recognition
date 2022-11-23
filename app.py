@@ -53,7 +53,7 @@ def predic(file):
     bird = str(label[int(respuesta)])
     return bird
 
-@app.route("/")
+@app.route("/", methods=['GET'])
 def index():
     return render_template("index.html")
 
