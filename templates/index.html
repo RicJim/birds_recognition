@@ -8,33 +8,43 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity=
     "sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <title>Prototipo Reconocimiento de Aves</title>
+    <title>Reconocimiento de Aves por medio del sonido</title>
     <!-- As a link -->
-    <nav class="navbar navbar-dark bg-dark opaque-70">
-        <a class="navbar-brand" href="/">Prototipo Reconocimiento de Aves</a>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <a class="navbar-brand mx-left" href="/"><h1 class="px-3">OVEX</h1></a>
+        <div class="">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link px-3 active" href="#">Catalogo de aves</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-3 active" href="#">Help</a>
+                </li>
+            </ul>
+        </div>
     </nav>
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-    <h1 class="text-center">Prototipo de identificación de aves</h1>
+    <h1 class="text-center">Identificación de aves</h1>
     <div class="text-center">
-        <div id="controls">
-            <button id="record" class="btn btn-primary btn-lg btn-block" >Iniciar Grabacion</button>
-            <button id="predic" class="btn btn-primary btn-lg btn-block" disabled="true">Identificar</button>
+        <div class="d-grid gap-2 col-md-3 col-lg-3 col-sm-3 mx-auto" id="controls">
+            <button id="record" class="btn btn-warning btn-outline-dark btn-lg btn-block" >Iniciar Grabacion</button>
+            <button id="predic" class="btn btn-success btn-outline-dark btn-lg btn-block" disabled="true">Identificar</button>
         </div>
-        <ol id="recordingsList"></ol>
+        <ol class="py-3 align-content-center" id="recordingsList"></ol>
     </div>
     <div class="text-center">
-        <h2 class="" >Catalogo de Aves</h2>
-        <button onclick="changeImage()" type="button" class="btn btn-success btn-circle btn-lg"> <-- </button>
-        <img id="imagen" width="350" height="300" src="https://estaticos-cdn.elperiodico.com/clip/3424569b-4f02-4186-8bcc-ac218d277b31_alta-libre-aspect-ratio_default_0.jpg" class="rounded">
-        <button onclick="changeImage1()" type="button" class="btn btn-success btn-circle btn-lg"> --> </button>
+        <h2 class="">Catalogo de aves</h2>
+        <img id="imagen" width="400" height="350" src="https://cdn.download.ams.birds.cornell.edu/api/v1/asset/47233731/1200"; class="rounded">
         <div class="text-center">
-            <h4><i id="nombreIMG" class=""><span> Quetzal </span></i></h4>
+            <h4><i id="nombreIMG" class=""><span> Acanthidops bairdi - Pinzón piquiagudo </span></i></h4>
+            <h5><i id="estado"><span> </span></i></h5>
         </div>
+        <button onclick="changeImage()" type="button" class="btn btn-success rounded-pill btn-lg"> <-- </button>
+        <button onclick="changeImage1()" type="button" class="btn btn-success rounded-pill btn-lg"> --> </button>
     </div>
     <h3 id="bird_name"><span> </span></h3>
-
     <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>

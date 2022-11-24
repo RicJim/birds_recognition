@@ -26,7 +26,6 @@ function recording(){
 
             rec.record();
             setTimeout(()=>{
-                btnrecord.disabled = false;
                 btnpredic.disabled = false;
                 rec.stop();
                 gumStream.getAudioTracks()[0].stop();
@@ -75,6 +74,7 @@ function createDownloadLink(blob){
         xhr.send(fd);
     })
     up.click()
+    li.classList.add('text-center','py-1')
     li.appendChild(document.createTextNode(" "))
     //li.appendChild(up)
     recordingsList.appendChild(li);
@@ -91,124 +91,126 @@ function prediction(){
         async: true,
         success: function (birdID) {
             //Get and display the result
-            $('#bird_name').fadeIn(600);
-            $('#bird_name').text(' Ave Identificada:  ' + birdID);
-            a = birdID;
-            birdIMG(a);
+            btnrecord.disabled = false;
+            birdName = birdID;
+            birdIMG(birdName);
         },
     });
-}
-
-function birdIMG(birdID){
-    if(birdID == "Acathidops bairdi - Pinzón piquiagudo"){
-        image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/47233731/1200";
-        imageName.innerHTML = "Pinzón piquiagudo";
-    } else if(birdID == "Amazona Auropalliata - Nuca amarilla"){
-        image.src = "https://www.barrameda.com.ar/wp-content/uploads/2019/12/lora-nuca-amarilla.jpg";
-        imageName.innerHTML = "Nuca Amarilla";
-    } else if(birdID == "Amazona Oratrix - Loro rey"){
-        image.src = "https://avesexoticas.org/wp-content/uploads/2017/10/Loro-Baceza-Amarilla-Amazona-oratrix-1024x680.jpg";
-        imageName.innerHTML = "Loro Rey";
-    } else if(birdID == "Ara ambiguus - Guacamaya verde"){
-        image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/245390831/1200";
-        imageName.innerHTML = "Guacamaya verde";
-    } else if(birdID == "Chlorophonia callophrys - Fruterito de cejas doradas"){
-        image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/243972201/1200";
-        imageName.innerHTML = "Fruterito de cejas doradas";
-    } else if(birdID == "Laterallus Jamaicensis - Burrito cuyano"){
-        image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/480560721/";
-        imageName.innerHTML = "Burrito cuyano";
-    } else if(birdID == "Myadestes melanops - Solitario carinegro"){
-        image.src = "https://lh4.ggpht.com/d7FLvfHHlVscO-nCsvIpLYtTZewrn-QgseBIGa5xz-qvY4xqmDRU4EwSJEB2yFxv-1bQD5xqHuOnDLBM1XUC=s600";
-        imageName.innerHTML = "Solitario Carinegro"
-    } else if(birdID == "Pharopmachrus mocinno - Quetzal"){
-        image.src ="https://estaticos-cdn.elperiodico.com/clip/3424569b-4f02-4186-8bcc-ac218d277b31_alta-libre-aspect-ratio_default_0.jpg";
-        imageName.innerHTML = "Quetzal";
-    } else if(birdID == "Pyrrhura picta eisenmanni - Perico carato"){
-        image.src = "https://upload.wikimedia.org/wikipedia/commons/9/98/Azuero_Parakeet.jpg";
-        imageName.innerHTML = "Perico carato";
-    } else if(birdID == "Setophaga chrysoparia - Reinita caridorada"){
-        image.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Dendroica_chrysoparia1.jpg/1200px-Dendroica_chrysoparia1.jpg";
-        imageName.innerHTML = "Reinita caridorada";
-    } else{
-        image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/326175571/1200";
-        imageName.innerHTML = "Aguilillo adornado";
-    }
 }
 
 let image = document.getElementById('imagen');
 let imageName = document.getElementById('nombreIMG');
 
-function changeImage(){
-    if(image.src.match("Dendroica_chrysoparia1")){
-        image.src ="https://estaticos-cdn.elperiodico.com/clip/3424569b-4f02-4186-8bcc-ac218d277b31_alta-libre-aspect-ratio_default_0.jpg";
-        imageName.innerHTML = "Quetzal";
-    } else if(image.src.match("ratio_default_0")){
-        image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/326175571/1200";
-        imageName.innerHTML = "Aguilillo adornado";
-    } else if(image.src.match("326175571")){
-        image.src = "https://upload.wikimedia.org/wikipedia/commons/9/98/Azuero_Parakeet.jpg";
-        imageName.innerHTML = "Perico carato";
-    } else if(image.src.match("Azuero_Parakeet")){
+let label = ["Acanthidops bairdi - Pinzón piquiagudo","Amazona Auropalliata - Nuca amarilla","Amazona Oratrix - Loro rey","Ara ambiguus - Guacamaya verde",
+        "Chlorophonia callophrys - Fruterito de cejas doradas","Harpia harpyja - Águila arpía","Laterallus Jamaicensis - Burrito cuyano","Myadestes melanops - Solitario carinegro",
+        "Pharopmachrus mocinno - Quetzal","Pyrrhura picta eisenmanni - Perico carato","Setophaga chrysoparia - Reinita caridorada","Spizaetus ornatus - Aguilillo adornado"]
+
+function birdIMG(birdName){
+    if(birdName == label[0]){
+        image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/47233731/1200";
+    } else if(birdName == label[1]){
+        image.src = "https://www.barrameda.com.ar/wp-content/uploads/2019/12/lora-nuca-amarilla.jpg";
+    } else if(birdName == label[2]){
+        image.src = "https://avesexoticas.org/wp-content/uploads/2017/10/Loro-Baceza-Amarilla-Amazona-oratrix-1024x680.jpg";
+    } else if(birdName == label[3]){
+        image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/245390831/1200";
+    } else if(birdName == label[4]){
         image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/243972201/1200";
-        imageName.innerHTML = "Fruterito de cejas doradas";
+    } else if(birdName == label[5]){
+        image.src = "https://cdn1.matadornetwork.com/blogs/2/2019/01/aguila-arpia.jpg";
+    } else if(birdName == label[6]){
+        image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/480560721/";
+    } else if(birdName == label[7]){
+        image.src = "https://lh4.ggpht.com/d7FLvfHHlVscO-nCsvIpLYtTZewrn-QgseBIGa5xz-qvY4xqmDRU4EwSJEB2yFxv-1bQD5xqHuOnDLBM1XUC=s600";
+    } else if(birdName == label[8]){
+        image.src ="https://estaticos-cdn.elperiodico.com/clip/3424569b-4f02-4186-8bcc-ac218d277b31_alta-libre-aspect-ratio_default_0.jpg";
+    } else if(birdName == label[9]){
+        image.src = "https://upload.wikimedia.org/wikipedia/commons/9/98/Azuero_Parakeet.jpg";
+    } else if(birdName == label[10]){
+        image.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Dendroica_chrysoparia1.jpg/1200px-Dendroica_chrysoparia1.jpg";
+    } else{
+        image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/326175571/1200";
+    }
+    imageName.innerHTML = birdName;
+}
+
+function changeImage(){
+    if(image.src.match("47233731")){
+        image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/326175571/1200";
+        imageName.innerHTML = label[11];
+    } else if (image.src.match("326175571")){
+        image.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Dendroica_chrysoparia1.jpg/1200px-Dendroica_chrysoparia1.jpg";
+        imageName.innerHTML = label[10];
+    } else if(image.src.match("Dendroica_chrysoparia1")){
+        image.src = "https://upload.wikimedia.org/wikipedia/commons/9/98/Azuero_Parakeet.jpg";
+        imageName.innerHTML = label[9];
+    } else if(image.src.match("Azuero_Parakeet")){
+        image.src ="https://estaticos-cdn.elperiodico.com/clip/3424569b-4f02-4186-8bcc-ac218d277b31_alta-libre-aspect-ratio_default_0.jpg";
+        imageName.innerHTML = label[8];
+    } else if(image.src.match("ac218d277b31_alta")){
+        image.src = "https://lh4.ggpht.com/d7FLvfHHlVscO-nCsvIpLYtTZewrn-QgseBIGa5xz-qvY4xqmDRU4EwSJEB2yFxv-1bQD5xqHuOnDLBM1XUC=s600";
+        imageName.innerHTML = label[7];
+    } else if(image.src.match("qvY4xqmDRU4EwSJEB2yFxv")){
+        image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/480560721/";
+        imageName.innerHTML = label[6];
+    } else if(image.src.match("480560721")){
+        image.src = "https://cdn1.matadornetwork.com/blogs/2/2019/01/aguila-arpia.jpg";
+        imageName.innerHTML = label[5];
+    } else if(image.src.match("aguila-arpia")){
+        image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/243972201/1200";
+        imageName.innerHTML = label[4];
     } else if(image.src.match("243972201")){
         image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/245390831/1200";
-        imageName.innerHTML = "Guacamaya verde";
+        imageName.innerHTML = label[3];
     } else if(image.src.match("245390831")){
         image.src = "https://avesexoticas.org/wp-content/uploads/2017/10/Loro-Baceza-Amarilla-Amazona-oratrix-1024x680.jpg";
-        imageName.innerHTML = "Loro Rey";
-    } else if(image.src.match("Amazona-oratrix")){
+        imageName.innerHTML = label[2];
+    } else if(image.src.match("Loro-Baceza-Amarilla-Amazona-oratrix")){
         image.src = "https://www.barrameda.com.ar/wp-content/uploads/2019/12/lora-nuca-amarilla.jpg";
-        imageName.innerHTML = "Nuca Amarilla";
-    } else if(image.src.match("lora-nuca-amarilla")){
-        image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/47233731/1200";
-        imageName.innerHTML = "Pinzón piquiagudo";
-    } else if(image.src.match("47233731")){
-        image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/480560721/";
-        imageName.innerHTML = "Burrito cuyano";
-    } else if(image.src.match("480560721")){
-        image.src = "https://lh4.ggpht.com/d7FLvfHHlVscO-nCsvIpLYtTZewrn-QgseBIGa5xz-qvY4xqmDRU4EwSJEB2yFxv-1bQD5xqHuOnDLBM1XUC=s600";
-        imageName.innerHTML = "Solitario Carinegro"
+        imageName.innerHTML = label[1];
     } else {
-        image.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Dendroica_chrysoparia1.jpg/1200px-Dendroica_chrysoparia1.jpg";
-        imageName.innerHTML = "Reinita caridorada";
+        image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/47233731/1200";
+        imageName.innerHTML = label[0];
     }
 }
 
 function changeImage1(){
-    if(image.src.match("ratio_default_0")){
-        image.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Dendroica_chrysoparia1.jpg/1200px-Dendroica_chrysoparia1.jpg";
-        imageName.innerHTML = "Reinita caridorada";
-    } else if (image.src.match("Dendroica_chrysoparia1")){
-        image.src = "https://lh4.ggpht.com/d7FLvfHHlVscO-nCsvIpLYtTZewrn-QgseBIGa5xz-qvY4xqmDRU4EwSJEB2yFxv-1bQD5xqHuOnDLBM1XUC=s600";
-        imageName.innerHTML = "Solitario Carinegro"
-    } else if(image.src.match("d7FLvfHHlVscO")) {
-        image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/480560721/";
-        imageName.innerHTML = "Burrito cuyano";
-    } else if(image.src.match("480560721")){
+    if(image.src.match("326175571")){
         image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/47233731/1200";
-        imageName.innerHTML = "Pinzón piquiagudo";
+        imageName.innerHTML = label[0];
     } else if(image.src.match("47233731")){
         image.src = "https://www.barrameda.com.ar/wp-content/uploads/2019/12/lora-nuca-amarilla.jpg";
-        imageName.innerHTML = "Nuca Amarilla";
+        imageName.innerHTML = label[1];
     } else if(image.src.match("lora-nuca-amarilla.jpg")){
         image.src = "https://avesexoticas.org/wp-content/uploads/2017/10/Loro-Baceza-Amarilla-Amazona-oratrix-1024x680.jpg";
-        imageName.innerHTML = "Loro Rey";
+        imageName.innerHTML = label[2];
     } else if(image.src.match("Amazona-oratrix")){
         image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/245390831/1200";
-        imageName.innerHTML = "Guacamaya verde";
+        imageName.innerHTML = label[3];
     } else if(image.src.match("245390831")){
         image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/243972201/1200";
-        imageName.innerHTML = "Fruterito de cejas doradas";
+        imageName.innerHTML = label[4];
     } else if(image.src.match("243972201")){
-        image.src = "https://upload.wikimedia.org/wikipedia/commons/9/98/Azuero_Parakeet.jpg";
-        imageName.innerHTML = "Perico carato";
-    } else if(image.src.match("Azuero_Parakeet")){
-        image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/326175571/1200";
-        imageName.innerHTML = "Aguilillo adornado";
-    } else {
+        image.src = "https://cdn1.matadornetwork.com/blogs/2/2019/01/aguila-arpia.jpg";
+        imageName.innerHTML = label[5];
+    } else if(image.src.match("aguila-arpia")) {
+        image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/480560721/";
+        imageName.innerHTML = label[6];
+    } else if (image.src.match("480560721")){
+        image.src = "https://lh4.ggpht.com/d7FLvfHHlVscO-nCsvIpLYtTZewrn-QgseBIGa5xz-qvY4xqmDRU4EwSJEB2yFxv-1bQD5xqHuOnDLBM1XUC=s600";
+        imageName.innerHTML = label[7];
+    } else if(image.src.match("qvY4xqmDRU4EwSJEB2yFxv")) {
         image.src = "https://estaticos-cdn.elperiodico.com/clip/3424569b-4f02-4186-8bcc-ac218d277b31_alta-libre-aspect-ratio_default_0.jpg";
-        imageName.innerHTML = "Quetzal";
+        imageName.innerHTML = label[8];
+    } else if(image.src.match("ac218d277b31_alta")){
+        image.src = "https://upload.wikimedia.org/wikipedia/commons/9/98/Azuero_Parakeet.jpg";
+        imageName.innerHTML = label[9];
+    } else if(image.src.match("Azuero_Parakeet")){
+        image.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Dendroica_chrysoparia1.jpg/1200px-Dendroica_chrysoparia1.jpg";
+        imageName.innerHTML = label[10];
+    } else {
+        image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/326175571/1200";
+        imageName.innerHTML = label[11];
     }
 }
+
