@@ -24,7 +24,7 @@ APP_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 label = ["Acanthidops bairdi - Pinzón piquiagudo","Amazona Auropalliata - Nuca amarilla","Amazona Oratrix - Loro rey","Ara ambiguus - Guacamaya verde",
         "Chlorophonia callophrys - Fruterito de cejas doradas","Harpia harpyja - Águila arpía","Laterallus Jamaicensis - Burrito cuyano","Myadestes melanops - Solitario carinegro",
-        "Pharopmachrus mocinno - Quetzal","Pyrrhura picta eisenmanni - Perico carato","Setophaga chrysoparia - Reinita caridorada","Spizaetus ornatus - Aguilillo adornado"]
+        "Pharopmachrus mocinno - Quetzal","Poliocrania exsul - Hormiguero dorsicastaño","Pyrrhura picta eisenmanni - Perico carato","Setophaga chrysoparia - Reinita caridorada","Spizaetus ornatus - Aguilillo adornado"]
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'supersecretkey'
@@ -43,11 +43,13 @@ def load_model():
 
 #Predic
 def predic(file):
-    x = cv2.imread(file, cv2.IMREAD_COLOR)
+    x = cv2.imread(file, cv2.IMREAD_GRAYSCALE)
     x = np.expand_dims(x, axis=0)
     array = model.predict(x)
     resultado = array[0].round()
     respuesta = np.argmax(resultado)
+    
+    print(array)
 
     bird = str(label[int(respuesta)])
     return bird
@@ -55,6 +57,14 @@ def predic(file):
 @app.route("/")
 def index():
     return render_template("index.html")
+
+@app.route("/catalogo")
+def catalogo():
+    return render_template("catalogo.html")
+
+@app.route("/ayuda")
+def ayuda():
+    return render_template("ayuda.html")
 
 @app.route("/save",methods=['GET','POST'])
 def save():
@@ -94,7 +104,6 @@ def spec():
         imagen = cv2.resize(imagen,(SIZE,SIZE),interpolation = cv2.INTER_CUBIC)
         imagen = cv2.medianBlur(imagen,1)
         imagen = 255-imagen
-        imagen = cv2.cvtColor(imagen, cv2.COLOR_GRAY2BGR)
         cv2.imwrite(out, imagen)
 
         def pred():
@@ -107,8 +116,8 @@ def spec():
 
 if __name__ == "__main__":
     load_model()
-    #app.run(debug = False, threaded = False)
-    app.run(debug= True,port = 5000)
+    app.run(debug = False, threaded = False)
+    #app.run(debug= True, port = 5000)
 
 if __name__ == "app":
     load_model()

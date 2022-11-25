@@ -101,9 +101,19 @@ function prediction(){
 let image = document.getElementById('imagen');
 let imageName = document.getElementById('nombreIMG');
 
-let label = ["Acanthidops bairdi - Pinzón piquiagudo","Amazona Auropalliata - Nuca amarilla","Amazona Oratrix - Loro rey","Ara ambiguus - Guacamaya verde",
-        "Chlorophonia callophrys - Fruterito de cejas doradas","Harpia harpyja - Águila arpía","Laterallus Jamaicensis - Burrito cuyano","Myadestes melanops - Solitario carinegro",
-        "Pharopmachrus mocinno - Quetzal","Pyrrhura picta eisenmanni - Perico carato","Setophaga chrysoparia - Reinita caridorada","Spizaetus ornatus - Aguilillo adornado"]
+let label = ["Acanthidops bairdi - Pinzón piquiagudo",
+            "Amazona Auropalliata - Nuca amarilla",
+            "Amazona Oratrix - Loro rey",
+            "Ara ambiguus - Guacamaya verde",
+            "Chlorophonia callophrys - Fruterito de cejas doradas",
+            "Harpia harpyja - Águila arpía",
+            "Laterallus Jamaicensis - Burrito cuyano",
+            "Myadestes melanops - Solitario carinegro",
+            "Pharopmachrus mocinno - Quetzal",
+            "Poliocrania exsul - Hormiguero dorsicastaño",
+            "Pyrrhura picta eisenmanni - Perico carato",
+            "Setophaga chrysoparia - Reinita caridorada",
+            "Spizaetus ornatus - Aguilillo adornado"]
 
 function birdIMG(birdName){
     if(birdName == label[0]){
@@ -125,8 +135,10 @@ function birdIMG(birdName){
     } else if(birdName == label[8]){
         image.src ="https://estaticos-cdn.elperiodico.com/clip/3424569b-4f02-4186-8bcc-ac218d277b31_alta-libre-aspect-ratio_default_0.jpg";
     } else if(birdName == label[9]){
-        image.src = "https://upload.wikimedia.org/wikipedia/commons/9/98/Azuero_Parakeet.jpg";
+        image.src = "https://live.staticflickr.com/65535/48731968408_7bc08ea5b8_b.jpg";
     } else if(birdName == label[10]){
+        image.src = "https://upload.wikimedia.org/wikipedia/commons/9/98/Azuero_Parakeet.jpg";
+    } else if(birdName == label[11]){
         image.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Dendroica_chrysoparia1.jpg/1200px-Dendroica_chrysoparia1.jpg";
     } else{
         image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/326175571/1200";
@@ -137,14 +149,17 @@ function birdIMG(birdName){
 function changeImage(){
     if(image.src.match("47233731")){
         image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/326175571/1200";
-        imageName.innerHTML = label[11];
+        imageName.innerHTML = label[12];
     } else if (image.src.match("326175571")){
         image.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Dendroica_chrysoparia1.jpg/1200px-Dendroica_chrysoparia1.jpg";
-        imageName.innerHTML = label[10];
+        imageName.innerHTML = label[11];
     } else if(image.src.match("Dendroica_chrysoparia1")){
         image.src = "https://upload.wikimedia.org/wikipedia/commons/9/98/Azuero_Parakeet.jpg";
-        imageName.innerHTML = label[9];
+        imageName.innerHTML = label[10];
     } else if(image.src.match("Azuero_Parakeet")){
+        image.src = "https://live.staticflickr.com/65535/48731968408_7bc08ea5b8_b.jpg";
+        imageName.innerHTML = label[9];
+    } else if(image.src.match("48731968408_7bc08ea5b8_b")){
         image.src ="https://estaticos-cdn.elperiodico.com/clip/3424569b-4f02-4186-8bcc-ac218d277b31_alta-libre-aspect-ratio_default_0.jpg";
         imageName.innerHTML = label[8];
     } else if(image.src.match("ac218d277b31_alta")){
@@ -199,18 +214,20 @@ function changeImage1(){
     } else if (image.src.match("480560721")){
         image.src = "https://lh4.ggpht.com/d7FLvfHHlVscO-nCsvIpLYtTZewrn-QgseBIGa5xz-qvY4xqmDRU4EwSJEB2yFxv-1bQD5xqHuOnDLBM1XUC=s600";
         imageName.innerHTML = label[7];
-    } else if(image.src.match("qvY4xqmDRU4EwSJEB2yFxv")) {
+    } else if(image.src.match("1bQD5xqHuOnDLBM1XUC")) {
         image.src = "https://estaticos-cdn.elperiodico.com/clip/3424569b-4f02-4186-8bcc-ac218d277b31_alta-libre-aspect-ratio_default_0.jpg";
         imageName.innerHTML = label[8];
     } else if(image.src.match("ac218d277b31_alta")){
-        image.src = "https://upload.wikimedia.org/wikipedia/commons/9/98/Azuero_Parakeet.jpg";
+        image.src = "https://live.staticflickr.com/65535/48731968408_7bc08ea5b8_b.jpg";
         imageName.innerHTML = label[9];
+    } else if(image.src.match("48731968408_7bc08ea5b8_b")){
+        image.src = "https://upload.wikimedia.org/wikipedia/commons/9/98/Azuero_Parakeet.jpg";
+        imageName.innerHTML = label[10];
     } else if(image.src.match("Azuero_Parakeet")){
         image.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Dendroica_chrysoparia1.jpg/1200px-Dendroica_chrysoparia1.jpg";
-        imageName.innerHTML = label[10];
+        imageName.innerHTML = label[11];
     } else {
         image.src = "https://cdn.download.ams.birds.cornell.edu/api/v1/asset/326175571/1200";
-        imageName.innerHTML = label[11];
+        imageName.innerHTML = label[12];
     }
 }
-
