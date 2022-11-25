@@ -57,9 +57,10 @@ function createDownloadLink(blob){
     li.appendChild(link);
 
     var up = document.createElement('a');
-    //up.href="#";
-    //up.innerHTML = "Upload";
-    up.hidden = true;
+    up.href="#";
+    up.innerHTML = "Upload";
+    up.setAttribute("id", "subir")
+    //up.hidden = true;
 
     up.addEventListener("click",function(event){
         var xhr=new XMLHttpRequest();
@@ -76,12 +77,12 @@ function createDownloadLink(blob){
     up.click()
     li.classList.add('text-center','py-1')
     li.appendChild(document.createTextNode(" "))
-    //li.appendChild(up)
+    li.appendChild(up)
     recordingsList.appendChild(li);
 }
 
 function prediction(){
-    btnpredic.disabled = true;
+    //btnpredic.disabled = true;
     $.ajax({
         type: 'POST',
         url: '/spec',
